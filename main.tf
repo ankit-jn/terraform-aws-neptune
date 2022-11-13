@@ -1,4 +1,4 @@
-## Security Group for RDS Aurora
+## Security Group for Neptune
 module "neptune_security_group" {
     source = "git::https://github.com/arjstack/terraform-aws-security-groups.git?ref=v1.0.0"
 
