@@ -1,4 +1,4 @@
-# ARJ-Stack: AWS Neptune Service, Terraform module
+# ARJ-Stack: AWS Neptune, Graph Database Service - Terraform module
 
 A Terraform module for provisioning AWS Neptune, a fast, reliable and fully managed graph database
 
