@@ -1,8 +1,8 @@
-# ARJ-Stack: AWS Neptune, Graph Database Service - Terraform module
+## ARJ-Stack: AWS Neptune, Graph Database Service - Terraform module
 
 A Terraform module for provisioning AWS Neptune, a fast, reliable and fully managed graph database
 
-## Resources
+### Resources
 This module features the following components to be provisioned with different combinations:
 
 - Neptune Cluster [[aws_neptune_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/neptune_cluster)]
@@ -14,7 +14,7 @@ This module features the following components to be provisioned with different c
 - Security Group [[aws_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)]
 - Security Group Rules [[aws_security_group_rule](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule)]
 
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
@@ -27,11 +27,11 @@ This module features the following components to be provisioned with different c
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.22.0 |
 
-## Examples
+### Examples
 
 Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-examples/tree/main/aws-neptune) for effectively utilizing this module.
 
-## Inputs
+### Inputs
 
 #### DB Cluster specific properties
 ---
@@ -91,7 +91,7 @@ Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-example
 | <a name="cluster_tags"></a> [cluster_tags](#input\_cluster\_tags) | A map of tags to assign to the Neptune cluster. | `map(string)` | `{}` | no |
 | <a name="instance_tags"></a> [instance_tags](#input\_instance\_tags) | A map of tags to assign to all the Neptune Instance. | `map(string)` | `{}` | no |
 
-## Nested Configuration Maps:  
+### Nested Configuration Maps:  
 
 #### parameter_group
 
@@ -160,7 +160,7 @@ Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-example
 | <a name="ipv6_cidr_blocks"></a> [ipv6_cidr_blocks](#input\_ipv6\_cidr\_blocks) | List of IPv6 CIDR blocks. | `list(string)` |  | no |
 | <a name="source_security_group_id"></a> [source_security_group_id](#input\_source\_security\_group\_id) | Security group id to allow access to/from | `string` |  | no |
 
-## Outputs
+### Outputs
 
 | Name | Type | Description |
 |:------|:------|:------|
@@ -173,7 +173,7 @@ Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-example
 | <a name="custom_endpoints"></a> [custom_endpoints](#output\_custom\_endpoints) | `map` | Neptune Cluster Custom Endpints:<br><b>Map Key:</b> Endpoint Identifier<br><b>Map Value:</b> Map of the following Custom Endpoint attributes:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`id` - The ID of Custom Endpoint<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`arn` - Amazon Resource Name (ARN) of Custom Endpoint<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`endpoint` - Endpoint |
 | <a name="sg_id"></a> [sg_id](#output\_sg\_id) | `string` | The Security Group ID associated to Neptune |
 
-## Authors
+### Authors
 
 Module is maintained by [Ankit Jain](https://github.com/ankit-jn) with help from [these professional](https://github.com/arjstack/terraform-aws-neptune/graphs/contributors).
 
