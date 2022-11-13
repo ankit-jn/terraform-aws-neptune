@@ -5,7 +5,7 @@ resource aws_neptune_cluster_instance "this" {
                             instance.name => instance if var.create_cluster } 
 
     identifier = each.key
-    cluster_identifier = aws_rds_cluster.this[0].id
+    cluster_identifier = aws_neptune_cluster.this[0].id
 
     engine          = var.engine
     engine_version  = var.engine_version
@@ -37,8 +37,8 @@ resource aws_neptune_cluster_endpoint "this" {
     endpoint_type        = each.value.type
     cluster_identifier          = aws_neptune_cluster.this[0].id
 
-    static_members = can(each.value.static_members) ? flatten([for member in each.value.static_members : aws_rds_cluster_instance.this[member].id]) : null
-    excluded_members = can(each.value.excluded_members) ? flatten([for member in each.value.excluded_members : aws_rds_cluster_instance.this[member].id]) : null
+    static_members = can(each.value.static_members) ? flatten([for member in each.value.static_members : aws_neptune_cluster_instance.this[member].id]) : null
+    excluded_members = can(each.value.excluded_members) ? flatten([for member in each.value.excluded_members : aws_neptune_cluster_instance.this[member].id]) : null
 
     tags = merge({"Name" = each.key}, var.default_tags, var.cluster_tags, lookup(each.value, "tags", {}))
 

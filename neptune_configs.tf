@@ -15,7 +15,7 @@ resource aws_neptune_cluster_parameter_group "this" {
     count = var.create_cluster && var.create_neptune_cluster_parameter_group ? 1 : 0
 
     name        = var.neptune_cluster_parameter_group.name
-    description = lookup(var.neptune_cluster_parameter_group, "description", var.db_cluster_parameter_group.name)
+    description = lookup(var.neptune_cluster_parameter_group, "description", var.neptune_cluster_parameter_group.name)
     family      = var.neptune_cluster_parameter_group.family
 
     dynamic "parameter" {

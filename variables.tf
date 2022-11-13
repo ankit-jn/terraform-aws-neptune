@@ -209,11 +209,6 @@ variable "enable_cloudwatch_logs_exports" {
     description = "Set of log types to export to cloudwatch."
     type        = set(string)
     default     = []
-
-    validation {
-        condition = try(length(var.enable_cloudwatch_logs_exports), 0) > 0 ? contains(["audit"], var.enable_cloudwatch_logs_exports) : true 
-        error_message = "It currently only supports `audit`"
-    }
 }
 
 #################################################
