@@ -21,7 +21,6 @@ resource aws_neptune_cluster_instance "this" {
     auto_minor_version_upgrade  = lookup(each.value, "auto_minor_version_upgrade", var.auto_minor_version_upgrade)
     apply_immediately           = lookup(each.value, "apply_immediately", var.apply_immediately)
 
-    preferred_backup_window = lookup(each.value, "preferred_backup_window", var.preferred_backup_window)
     preferred_maintenance_window = lookup(each.value, "preferred_maintenance_window", var.preferred_maintenance_window)
 
     tags = merge({"Name" = each.key}, var.default_tags, var.cluster_tags, var.instance_tags, lookup(each.value, "tags", {}))

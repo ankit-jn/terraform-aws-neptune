@@ -80,7 +80,7 @@ Refer [Configuration Examples](https://github.com/arjstack/terraform-aws-example
 | <a name="instance_class"></a> [instance_class](#input\_instance\_class) | The instance class to use for Neptune Instance. | `string` | `null` | no |  |
 | <a name="publicly_accessible"></a> [publicly_accessible](#input\_publicly\_accessible) | Flag to decide if instances are publicly accessible. | `bool` | `false` | no |  |
 | <a name="auto_minor_version_upgrade"></a> [auto_minor_version_upgrade](#input\_auto\_minor\_version\_upgrade) | Enable to allow minor engine upgrades utomatically to the Neptune instance during the maintenance window. | `bool` | `true` | no |  |
-| <a name="instances"></a> [instances](#instances) | List of cluster instances map | `list` | `[]` | no | <pre>[<br>   {<br>     name = "first"<br>     monitoring_granularity = 30<br>   },<br>   {<br>     name = "first"<br>     promotion_tier = 3<br>     preferred_backup_window = 04:00-04:30<br>     preferred_maintenance_window = "Mon:04:00-Mon:04:30"<br>   }<br>] |
+| <a name="instances"></a> [instances](#instances) | List of cluster instances map | `list` | `[]` | no | <pre>[<br>   {<br>     name = "first"<br>     promotion_tier = 3<br>     preferred_maintenance_window = "Mon:04:00-Mon:04:30"<br>   }<br>] |
 | <a name="endpoints"></a> [endpoints](#endpoints) | List of cluster endpoints map | `list` | `[]` | no | <pre>[<br>   {<br>     identifier = "ep-analysis"<br>     type = "READER"<br>     static_members = ["third"]<br>   }<br>] |
 
 #### Tags specific properties

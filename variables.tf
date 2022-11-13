@@ -362,8 +362,6 @@ auto_minor_version_upgrade: (Optional) Enable to allow minor engine upgrades uto
 apply_immediately       : (Optional) Specifies whether any instance modifications are applied immediately, or during the next maintenance window.
                           Default- the one set at cluster level via property `apply_immediately`
 
-preferred_backup_window: (Optional) The daily time range during which automated backups are created if automated backups are enabled.
-                              Default - The one set at cluster lebel via property `preferred_backup_window`
 preferred_maintenance_window: (Optional) The window to perform maintenance in.
                               Default - The one set at cluster lebel via property `preferred_maintenance_window`
 tags                    : (Optional) A map of tags to assign to the Neptune Instance.
