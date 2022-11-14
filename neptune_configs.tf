@@ -28,7 +28,8 @@ resource aws_neptune_cluster_parameter_group "this" {
       }
     }
 
-    tags = merge(var.default_tags, lookup(var.neptune_cluster_parameter_group, "tags", {}))
+    tags = merge(var.default_tags, 
+                    lookup(var.neptune_cluster_parameter_group, "tags", {}))
 }
 
 ## Neptune Parameter Group
@@ -49,5 +50,6 @@ resource aws_neptune_parameter_group "this" {
       }
     }
 
-    tags = merge(var.default_tags, lookup(var.neptune_parameter_group, "tags", {}))
+    tags = merge(var.default_tags, 
+                      lookup(var.neptune_parameter_group, "tags", {}))
 }

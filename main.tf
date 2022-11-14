@@ -9,4 +9,7 @@ module "neptune_security_group" {
 
     ingress_rules = concat(local.sg_ingress_rules, local.sg_ingress_rules_source_sg)
     egress_rules  = local.sg_egress_rules
+
+    tags = merge({"Name" = local.sg_name}, 
+                    { "NeptuneCluster" = var.cluster_name }, var.default_tags)
 }

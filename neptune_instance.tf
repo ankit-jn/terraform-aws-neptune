@@ -23,7 +23,11 @@ resource aws_neptune_cluster_instance "this" {
 
     preferred_maintenance_window = lookup(each.value, "preferred_maintenance_window", var.preferred_maintenance_window)
 
-    tags = merge({"Name" = each.key}, var.default_tags, var.cluster_tags, var.instance_tags, lookup(each.value, "tags", {}))
+    tags = merge({"Name" = each.key}, 
+                    { "NeptuneCluster" = var.cluster_name }, 
+                    var.default_tags, 
+                    var.cluster_tags, 
+                    var.instance_tags, lookup(each.value, "tags", {}))
 }
 
 ## Cluster Endpoint(s)
@@ -39,7 +43,11 @@ resource aws_neptune_cluster_endpoint "this" {
     static_members = can(each.value.static_members) ? flatten([for member in each.value.static_members : aws_neptune_cluster_instance.this[member].id]) : null
     excluded_members = can(each.value.excluded_members) ? flatten([for member in each.value.excluded_members : aws_neptune_cluster_instance.this[member].id]) : null
 
-    tags = merge({"Name" = each.key}, var.default_tags, var.cluster_tags, lookup(each.value, "tags", {}))
+    tags = merge({"Name" = each.key}, 
+                    { "NeptuneCluster" = var.cluster_name }, 
+                    var.default_tags, 
+                    var.cluster_tags, 
+                    lookup(each.value, "tags", {}))
 
     depends_on = [
         aws_neptune_cluster_instance.this
